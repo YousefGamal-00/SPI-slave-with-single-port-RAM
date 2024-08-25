@@ -12,7 +12,8 @@ This project implements an SPI slave with single-port RAM on an FPGA. It include
 **-Testbench Included:** Simulate the design to verify functionality before FPGA implementation.
 
 
-##Tools
+## Tools
+
 **Modelsim**
 
 **Xilinx Vivado**
