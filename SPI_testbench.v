@@ -140,14 +140,14 @@ combined_data = 10'b11_00000000 ;
             @(negedge clk);
             MOSI = combined_data[9-i];
         end 
+    
+    @(negedge clk) ; // wait the MOSI to be taken  at next +Ve edge 
 
-    @(negedge clk) ; // wait the memory to accept its inputs 
+    #(T_clk) ; // wait the memory to accept its inputs 
 
-    #(T_clk) ; // wait the memory to deliver the outputs and activate the tx_valid
+    #(T_clk) ; // wait the memory to deliver its outputs
 
     #(T_clk) ; // wait clock after tx_valid = 1 --> could be done using [ wait(DUT.mem.tx_valid) ] 
-
-    #(T_clk) ; 
 
      for(i=0 ; i<8 ; i=i+1)
         begin
